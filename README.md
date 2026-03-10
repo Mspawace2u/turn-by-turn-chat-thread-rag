@@ -8,8 +8,13 @@ To ensure this folder is always backed up to GitHub in real-time, I've included 
 
 ### Key Features:
 - **Instant Sync**: Automatically detects when you add or modify a file and pushes it to GitHub after a short delay (5 seconds of silence).
+- **Native Notifications**: Displays a macOS notification banner whenever a sync is successful or fails.
 - **Version Handling**: If you download or save a versioned file (e.g., `MyNotes (1).md`), the script automatically overwrites the original `MyNotes.md` and removes the duplicate version.
 - **Fail-Safe History**: Works with a clean Git history approach to avoid conflicts and security blockades.
+
+### 💡 Pro-Tip: Disabling Notifications
+Once you are comfortable with the auto-pusher and no longer need the visual confirmation, you can simply ask the agent:
+> *"Please disable the macOS notifications in the git sync script."*
 
 ### 🚀 How to Use
 
