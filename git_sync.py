@@ -117,6 +117,13 @@ class GitAutoPusher(FileSystemEventHandler):
                 return
             self.process_change()
 
+    def on_moved(self, event):
+        """Triggered when a file is moved/renamed into the folder."""
+        if not event.is_directory:
+            # If it's a versioned file moved in, handle it
+            self.handle_versioning(event.dest_path)
+            self.process_change()
+
 def start_watching():
     print(f"👀 Starting automated Git watcher on: {FOLDER_TO_WATCH}")
     print("Feature Enabled: Files with '(N)' in name will overwrite original version.")
