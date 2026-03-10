@@ -3,6 +3,7 @@ import time
 import subprocess
 import re
 import shutil
+import threading
 from watchdog.observers import Observer
 from watchdog.events import FileSystemEventHandler
 
@@ -12,19 +13,22 @@ FOLDER_TO_WATCH = "/Users/pattywoods/Desktop/Turn By Turn Chat RAG Files"
 
 class GitAutoPusher(FileSystemEventHandler):
     def __init__(self):
-        self.last_push_time = 0
         self.debounce_seconds = 5 # Waits 5 seconds after a change to batch multiple files together
+        self.timer = None
         # Regex to match filenames like "File Name (1).md" or "My Document (2).txt"
         self.version_pattern = re.compile(r"(.+?)\s*\(\d+\)\.(.+)")
 
     def process_change(self):
-        current_time = time.time()
-        # Debounce: Prevent pushing 100 times if 100 files are added at once
-        if current_time - self.last_push_time < self.debounce_seconds:
-            return
-            
-        self.last_push_time = current_time
-        print("\n[🤖 Agent Watcher] Changes detected! Syncing to GitHub...")
+        """Schedules a sync after a brief silence (debounce)."""
+        if self.timer:
+            self.timer.cancel()
+        
+        self.timer = threading.Timer(self.debounce_seconds, self.perform_sync)
+        self.timer.start()
+
+    def perform_sync(self):
+        """The actual Git operations."""
+        print("\n[🤖 Agent Watcher] Syncing changes to GitHub...")
         
         try:
             # Change directory to the watched folder
@@ -61,13 +65,12 @@ class GitAutoPusher(FileSystemEventHandler):
         match = self.version_pattern.match(filename)
         
         if match:
-            base_name = match.group(1)
+            base_name = match.group(1).rstrip()
             extension = match.group(2)
             original_filename = f"{base_name}.{extension}"
             original_file_path = os.path.join(directory, original_filename)
             
             print(f"[🔄 Version Handler] Detected versioned file: '{filename}'")
-            print(f"[🔄 Version Handler] Overwriting '{original_filename}' with latest content...")
             
             try:
                 # Overwrite original with new version
@@ -86,6 +89,9 @@ class GitAutoPusher(FileSystemEventHandler):
 
     def on_modified(self, event):
         if not event.is_directory:
+            # Ignore changes to the script itself to prevent loops
+            if event.src_path.endswith("git_sync.py"):
+                return
             self.process_change()
 
 def start_watching():
@@ -111,6 +117,6 @@ if __name__ == "__main__":
     if not os.path.exists(FOLDER_TO_WATCH):
         print(f"Error: The folder {FOLDER_TO_WATCH} does not exist. Please update the path.")
     else:
-        # Move to the folder to ensure relative paths work if needed
+        # Move to the folder
         os.chdir(FOLDER_TO_WATCH)
         start_watching()
