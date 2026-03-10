@@ -11,7 +11,7 @@ from watchdog.events import FileSystemEventHandler
 # The exact path of your repository folder
 FOLDER_TO_WATCH = "/Users/pattywoods/Desktop/Turn By Turn Chat RAG Files"
 # Change this to True if you want a pop-up window instead of a notification banner
-USE_POPUP_DIALOG = False 
+USE_POPUP_DIALOG = True 
 
 class GitAutoPusher(FileSystemEventHandler):
     def __init__(self):
