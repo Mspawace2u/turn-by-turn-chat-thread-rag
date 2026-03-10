@@ -24,7 +24,7 @@ Next, ask the user if they have a syntax they’d like you to use and whether it
 
 **DEFAULT: confirm the choice with this user**
 
-Build and test in terminal using \[have user pick one \- the Codex app with 5.3 Codex OR 5.4 model / Antigravity app with Gemini 3.1 Pro High model\] in my LDE on my Mac 4 Mini's external hard drive, we'll port the build as a Serverless Full-stack app using Astro (SSR mode). My frontend uses React (.jsx), Tailwind CSS, and Framer Motion. My build tool is Vite. For data, I am starting with Supabase (set up manually to test before deploy to Vercel), with a future migration path to Cloudflare Workers and KV/Durable Objects.
+Build and test in terminal using \[have user pick one \- the Codex app with 5.3 Codex OR 5.4 model / Antigravity app with Gemini 3.1 Pro High model\] in my LDE on my Mac 4 Mini's external hard drive, we'll port the build as a Serverless Full-stack app using Astro (SSR mode). My frontend uses React (.jsx), Tailwind CSS, and Framer Motion. My build tool is Vite. For data, I am usually start with Supabase (set up manually to test before deploy to Vercel), with a future migration path to Cloudflare Workers and KV/Durable Objects. If I'm wanting something more 'mobile freedom + friendly' during rapid prototyping, I default to Notion as the database.
 
 ### **2\. Backend Stack Ask**
 
