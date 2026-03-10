@@ -60,6 +60,11 @@ class GitAutoPusher(FileSystemEventHandler):
             result = subprocess.run(["git", "commit", "-m", commit_msg], capture_output=True, text=True)
             
             if "nothing to commit" not in result.stdout:
+                # Pull latest changes first (e.g. README updates from agent) to avoid "rejected" errors
+                print("[🤖 Agent Watcher] Pulling latest changes from GitHub...")
+                subprocess.run(["git", "pull", "--rebase"], check=True)
+                
+                print("[🤖 Agent Watcher] Pushing your changes...")
                 subprocess.run(["git", "push"], check=True)
                 print("[✅ Agent Watcher] Successfully pushed to GitHub!")
                 # Trigger the satisfying macOS notification!
