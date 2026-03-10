@@ -20,6 +20,7 @@ class GitAutoPusher(FileSystemEventHandler):
 
     def send_mac_notification(self, title, message):
         """Triggers a native macOS notification banner."""
+        print(f"[🔔 Notification] Sending: {message}")
         apple_script = f'display notification "{message}" with title "{title}"'
         subprocess.run(["osascript", "-e", apple_script])
 
