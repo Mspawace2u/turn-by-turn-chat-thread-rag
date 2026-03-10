@@ -1,0 +1,6 @@
+## Q: 
+Transform the subject into a naive, childlike doodle with rough, uneven black linework and exaggerated, awkward proportions. Draw with a loose, scribbly style — wobbly outlines, unsteady strokes, and simple shapes that look hand-drawn without precision. Hair can be represented with frantic curls or straight jagged lines, and the expression should feel endearingly cute and adorable. Keep the background plain or lightly textured like paper. The overall aesthetic should feel like a spontaneous kid's sketch or amateur doodle — charmingly imperfect, unrefined, and playfully weird, while still recognizable as the original subject. Don't make it look like a crayon drawing, line art style lines only.
+
+## A: 
+![Generated image](https://chatgpt.com/backend-api/estuary/content?id=file_00000000aba8720ca8e83015da6b53f9&ts=492280&p=fs&cid=1&sig=af25d0dec6d9e7a96571b1663dfa107e763d86404d295a8f57f05c79dc8945ef&v=0)![Generated image](https://chatgpt.com/backend-api/estuary/content?id=file_00000000aba8720ca8e83015da6b53f9&ts=492280&p=fs&cid=1&sig=af25d0dec6d9e7a96571b1663dfa107e763d86404d295a8f57f05c79dc8945ef&v=0)![Generated image](https://chatgpt.com/backend-api/estuary/content?id=file_00000000aba8720ca8e83015da6b53f9&ts=492280&p=fs&cid=1&sig=af25d0dec6d9e7a96571b1663dfa107e763d86404d295a8f57f05c79dc8945ef&v=0)
+
