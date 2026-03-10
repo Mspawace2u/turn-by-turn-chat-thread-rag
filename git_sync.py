@@ -20,11 +20,12 @@ class GitAutoPusher(FileSystemEventHandler):
 
     def process_change(self):
         """Schedules a sync after a brief silence (debounce)."""
-        if self.timer:
+        if self.timer is not None:
             self.timer.cancel()
         
         self.timer = threading.Timer(self.debounce_seconds, self.perform_sync)
-        self.timer.start()
+        if self.timer is not None:
+            self.timer.start()
 
     def perform_sync(self):
         """The actual Git operations."""
