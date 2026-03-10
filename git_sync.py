@@ -10,6 +10,8 @@ from watchdog.events import FileSystemEventHandler
 # --- CONFIGURATION ---
 # The exact path of your repository folder
 FOLDER_TO_WATCH = "/Users/pattywoods/Desktop/Turn By Turn Chat RAG Files"
+# Change this to True if you want a pop-up window instead of a notification banner
+USE_POPUP_DIALOG = False 
 
 class GitAutoPusher(FileSystemEventHandler):
     def __init__(self):
@@ -19,9 +21,15 @@ class GitAutoPusher(FileSystemEventHandler):
         self.version_pattern = re.compile(r"(.+?)\s*\(\d+\)\.(.+)")
 
     def send_mac_notification(self, title, message):
-        """Triggers a native macOS notification banner."""
+        """Triggers a native macOS notification banner or alert dialog."""
         print(f"[🔔 Notification] Sending: {message}")
-        apple_script = f'display notification "{message}" with title "{title}"'
+        if USE_POPUP_DIALOG:
+            # This creates a pop-up window that stays until you click OK
+            apple_script = f'display dialog "{message}" buttons {{"OK"}} default button "OK" with title "{title}"'
+        else:
+            # This is the standard sliding banner
+            apple_script = f'display notification "{message}" with title "{title}"'
+        
         subprocess.run(["osascript", "-e", apple_script])
 
     def process_change(self):
