@@ -22,15 +22,21 @@ class GitAutoPusher(FileSystemEventHandler):
 
     def send_mac_notification(self, title, message):
         """Triggers a native macOS notification banner or alert dialog."""
-        print(f"[🔔 Notification] Sending: {message}")
-        if USE_POPUP_DIALOG:
-            # This creates a pop-up window that stays until you click OK
-            apple_script = f'display dialog "{message}" buttons {{"OK"}} default button "OK" with title "{title}"'
-        else:
-            # This is the standard sliding banner
-            apple_script = f'display notification "{message}" with title "{title}"'
+        print(f"[🔔 Notification] Attempting to send: {message}")
         
-        subprocess.run(["osascript", "-e", apple_script])
+        if USE_POPUP_DIALOG:
+            # Alert dialogs are modal and will steal focus (un-missable)
+            apple_script = f'display dialog "{message}" buttons {{"OK"}} default button "OK" with title "{title}" with icon note'
+        else:
+            # Using 'System Events' to send notifications often bypasses app-specific blocks
+            # Adding 'sound name "Glass"' provides audio feedback
+            apple_script = f'tell application "System Events" to display notification "{message}" with title "{title}" sound name "Glass"'
+        
+        try:
+            subprocess.run(["osascript", "-e", apple_script], check=True)
+            print(f"[✅ Notification] Successfully triggered macOS feedback.")
+        except Exception as e:
+            print(f"[❌ Notification] AppleScript failed: {e}")
 
     def process_change(self):
         """Schedules a sync after a brief silence (debounce)."""
