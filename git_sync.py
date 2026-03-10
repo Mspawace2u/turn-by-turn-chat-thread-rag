@@ -18,6 +18,11 @@ class GitAutoPusher(FileSystemEventHandler):
         # Regex to match filenames like "File Name (1).md" or "My Document (2).txt"
         self.version_pattern = re.compile(r"(.+?)\s*\(\d+\)\.(.+)")
 
+    def send_mac_notification(self, title, message):
+        """Triggers a native macOS notification banner."""
+        apple_script = f'display notification "{message}" with title "{title}"'
+        subprocess.run(["osascript", "-e", apple_script])
+
     def process_change(self):
         """Schedules a sync after a brief silence (debounce)."""
         if self.timer is not None:
@@ -48,11 +53,14 @@ class GitAutoPusher(FileSystemEventHandler):
             if "nothing to commit" not in result.stdout:
                 subprocess.run(["git", "push"], check=True)
                 print("[✅ Agent Watcher] Successfully pushed to GitHub!")
+                # Trigger the satisfying macOS notification!
+                self.send_mac_notification("Git Auto Pusher", "🧠 New file pushed to GitHub!🫆")
             else:
                 print("[🤖 Agent Watcher] No new changes to commit.")
                 
         except subprocess.CalledProcessError as e:
             print(f"[❌ Agent Watcher] Git operation failed: {e}")
+            self.send_mac_notification("Git Auto Pusher", "❌ Failed to push to GitHub. Check terminal.")
 
     def handle_versioning(self, file_path):
         """
