@@ -1,8 +1,6 @@
 # **ChatGPT for Hire Business By Bots** 
 
-*An experiment in taking one creator’s suggested revenue generating model and plugging the Agent Army in to prove / test the best practices playbook for ‘truth’ in promised claims because I LIKE \+ NEED MOOOOOLAH* 😜 
-
-*Secondary goal, sell the agent framework to the system creator as a value add to the product or services they’re selling for higher completion rates, better client results, long term buyer loyalty (because the doing roadblocks and bottlenecks are handled).*   
+*An experiment in taking one creator’s suggested revenue generating model and plugging the Agent Army in to prove / test the best practices playbook for ‘truth’ in promised pillar content claims because I LIKE \+ NEED MOOOOOLAH* 😜   
 
 ## **🎨 COLORS LOCKED IN:**
 
@@ -108,15 +106,15 @@ social-intel-collector/
 
 ## **4\. NOTION DATABASE SCHEMA**
 
-### **Database Name: "GrowthOps Leads Pipeline"**
+Database Name: "GrowthOps Leads Pipeline"
 
-### **IMPORTANT: Agent creates this database on first run if it doesn't exist.**
+IMPORTANT: Agent creates this database on first run if it doesn't exist.
 
-### **If NOTION\_LEADS\_DB\_ID is empty in .env, agent creates DB and writes the**
+If NOTION\_LEADS\_DB\_ID is empty in .env, agent creates DB and writes the
 
-### **ID back to .env automatically.**
+ID back to .env automatically.
 
-### **Properties (Column Headers):**
+Properties (Column Headers):
 
 | Property Name | Notion Type | Code Variable Name | Description |
 | :---- | :---- | :---- | :---- |
@@ -689,55 +687,53 @@ Reference the full PRD document for complete database schema, function logic, in
 - Add competitor monitoring (who else is offering AI services)  
 - Migrate to Cloudflare Workers for always-on execution
 
-````
+```
+Agent 1 complete - now drafting Agent 2 
+```
 
----
+# **PRD: Agent 2 — Outreach Generator**
 
-**Agent 1 PRD complete.** 🔥
+## **Codename: outreach-generator**
 
-Building Agent 2 next. Stand by...
+Agent Types: Translator / Creator / Manager / Courier
 
----
+Version: 1.0
 
-```markdown
-# PRD: Agent 2 — Outreach Generator
-## Codename: outreach-generator
-## Agent Types: Translator / Creator / Manager / Courier
-## Version: 1.0
-## Date: March 10, 2026
+Date: March 10, 2026
 
----
+### ---
 
-## 1. OVERVIEW
+## **1\. OVERVIEW**
 
-### Purpose
-This agent reads qualified leads from the "GrowthOps Leads Pipeline" 
-Notion database (populated by Agent 1), generates 3 personalized outreach 
-message variations for each lead using OpenAI, writes them back to Notion 
-for human approval, then sends the approved message via Loops email API. 
-It manages the full outreach lifecycle from draft to delivery.
+### **Purpose**
 
-### Success Criteria
-- Reads all leads with status "New" from Notion
-- Generates 3 unique, personalized message variations per lead
-- Writes messages back to Notion for HITL review
-- Triggers MacOS popup when messages are ready for approval
-- Detects approved messages and sends via Loops API
-- Updates lead status through the pipeline
-- Completes message generation in under 10 minutes for 20 leads
+This agent reads qualified leads from the "GrowthOps Leads Pipeline" Notion database (populated by Agent 1), generates 3 personalized outreach message variations for each lead using OpenAI, writes them back to Notion for human approval, then sends the approved message via Loops email API. It manages the full outreach lifecycle from draft to delivery.
+
+### **Success Criteria**
+
+- Reads all leads with status "New" from Notion  
+- Generates 3 unique, personalized message variations per lead  
+- Writes messages back to Notion for HITL review  
+- Triggers MacOS popup when messages are ready for approval  
+- Detects approved messages and sends via Loops API  
+- Updates lead status through the pipeline  
+- Completes message generation in under 10 minutes for 20 leads  
 - Zero messages sent without human approval
 
-### Estimated Build Time
+### **Estimated Build Time**
+
 4-6 hours (Codex autonomous build)
 
----
+### ---
 
-## 2. TECH STACK
+## **2\. TECH STACK**
 
-### Language
+### **Language**
+
 JavaScript (Node.js)
 
-### Dependencies
+### **Dependencies**
+
 ```json
 {
   "dependencies": {
@@ -749,7 +745,7 @@ JavaScript (Node.js)
     "node-fetch": "^3.0.0"
   }
 }
-````
+```
 
 ### **APIs**
 
@@ -1318,59 +1314,78 @@ Most leads will come from LinkedIn/Twitter where you don't have their email. Thi
 - Response sentiment analysis  
 - Migrate to Cloudflare Workers for always-on polling
 
-````
+---
+
+\*\*Agent 2 PRD complete.\*\* 🔥 Building Agent 3 next. Stand by…
 
 ---
 
-**Agent 2 PRD complete.** 🔥
+# **PRD: Agent 3 — Discovery Prep Assistant**
 
-Building Agent 3 next. Stand by...
+## **Codename: discovery-prep-assistant**
 
----
+Agent Types: Scout / Translator / Creator / Courier
 
-```markdown
-# PRD: Agent 3 — Discovery Prep Assistant
-## Codename: discovery-prep-assistant
-## Agent Types: Scout / Translator / Creator / Courier
-## Version: 1.0
-## Date: March 10, 2026
+Version: 1.0
+
+Date: March 10, 2026
 
 ---
 
-## 1. OVERVIEW
+## **1\. OVERVIEW**
 
-### Purpose
+### **Purpose** 
+
 This agent monitors the "GrowthOps Leads Pipeline" Notion database for 
+
 leads whose status changes to "Booked." When detected, it automatically 
+
 scrapes the lead's LinkedIn profile and company website, synthesizes the 
+
 research using Gemini API (free tier), generates a comprehensive call 
+
 prep document, and writes it to a dedicated "GrowthOps Call Prep" Notion 
+
 database linked to the original lead record.
 
-### Success Criteria
-- Detects "Booked" status within 5 minutes of change
-- Scrapes LinkedIn profile + company website successfully
-- Generates comprehensive call prep doc with:
-  - Company overview
-  - 3 specific pain points
-  - 5 custom discovery questions
-  - Suggested service tier + pricing
-- Writes prep doc to Notion, linked to lead record
-- Triggers MacOS popup when prep doc is ready
-- Completes full research in under 5 minutes per lead
-- Makes you look like you spent 2 hours researching (you spent 0)
+### **Success Criteria**
 
-### Estimated Build Time
+\- Detects "Booked" status within 5 minutes of change
+
+\- Scrapes LinkedIn profile \+ company website successfully
+
+\- Generates comprehensive call prep doc with:
+
+  \- Company overview
+
+  \- 3 specific pain points
+
+  \- 5 custom discovery questions
+
+  \- Suggested service tier \+ pricing
+
+\- Writes prep doc to Notion, linked to lead record
+
+\- Triggers MacOS popup when prep doc is ready
+
+\- Completes full research in under 5 minutes per lead
+
+\- Makes you look like you spent 2 hours researching (you spent 0\)
+
+### **Estimated Build Time**
+
 4-6 hours (Antigravity autonomous build)
 
 ---
 
-## 2. TECH STACK
+## **2\. TECH STACK**
 
-### Language
+### **Language**
+
 JavaScript (Node.js)
 
-### Dependencies
+### **Dependencies**
+
 ```json
 {
   "dependencies": {
@@ -1382,7 +1397,7 @@ JavaScript (Node.js)
     "node-cron": "^3.0.0"
   }
 }
-````
+```
 
 ### **APIs**
 
@@ -1430,11 +1445,11 @@ discovery-prep-assistant/
 
 ## **4\. NOTION DATABASE SCHEMA**
 
-### **Database 1: "GrowthOps Leads Pipeline" (READ ONLY for this agent)**
+Database 1: "GrowthOps Leads Pipeline" (READ ONLY for this agent)
 
-### **Created by Agent 1\. This agent only READS from it.**
+Created by Agent 1\. This agent only READS from it.
 
-### **Properties This Agent READS:**
+Properties This Agent READS:
 
 - name  
 - profileUrl  
@@ -1451,11 +1466,11 @@ discovery-prep-assistant/
 
 ### **Database 2: "GrowthOps Call Prep" (CREATED BY THIS AGENT)**
 
-### **Agent creates this database on first run if it doesn't exist.**
+Agent creates this database on first run if it doesn't exist.
 
-### **If NOTION\_CALL\_PREP\_DB\_ID is empty in .env, agent creates DB**
+If NOTION\_CALL\_PREP\_DB\_ID is empty in .env, agent creates DB
 
-### **and writes the ID back to .env automatically.**
+and writes the ID back to .env automatically.
 
 ### **Properties (Column Headers):**
 
@@ -1800,9 +1815,9 @@ const WATCHER_CONFIG = {
 
 ## **7\. CRON / POLLING SCHEDULE**
 
-### **Default: Polls every 5 minutes for "Booked" status changes**
+Default: Polls every 5 minutes for "Booked" status changes
 
-### **Also triggerable via CLI for specific leads**
+Also triggerable via CLI for specific leads
 
 ```shell
 # Start polling mode (runs continuously)
@@ -1988,56 +2003,72 @@ When you show up to a discovery call knowing their company overview, specific pa
 - Post-call outcome tracking and win/loss analysis  
 - Migrate to Cloudflare Workers
 
-````
+---
+
+Agent 3 PRD complete. 🔥 Building Agent 4 next. Stand by…
 
 ---
 
-**Agent 3 PRD complete.** 🔥
+# **PRD: Agent 4 — Workflow Orchestrator**
 
-Building Agent 4 (Orchestrator) now. Final one...
+## **Codename: workflow-orchestrator**
 
----
+Agent Types: Manager / Strategist / Courier
 
-```markdown
-# PRD: Agent 4 — Workflow Orchestrator
-## Codename: workflow-orchestrator
-## Agent Types: Manager / Strategist / Courier
-## Version: 1.0
-## Date: March 10, 2026
+Version: 1.0
+
+Date: March 10, 2026
 
 ---
 
-## 1. OVERVIEW
+## **1\. OVERVIEW**
 
-### Purpose
+### **Purpose**
+
 This agent is the brain of the GrowthOps system. It coordinates Agents 
+
 1, 2, and 3 in the correct sequence, enforces business rules (budget 
+
 caps, lead thresholds, rate limits), manages HITL checkpoints, handles 
+
 errors across all agents, logs all system activity, and sends 
+
 notifications. It ensures the entire pipeline runs autonomously while 
+
 keeping the human in control of critical decisions.
 
-### Success Criteria
-- Triggers agents in correct dependency order
-- Enforces all business rules (budget, rate limits, thresholds)
-- Pauses workflow at HITL checkpoints and resumes on approval
-- Handles agent failures gracefully (retry, skip, alert)
-- Logs all activity to "System Logs" database
-- Sends MacOS popups for all human-required actions
-- Runs daily via CRON with zero manual intervention
-- Provides clear system status at any time via CLI
+### **Success Criteria**
 
-### Estimated Build Time
+\- Triggers agents in correct dependency order
+
+\- Enforces all business rules (budget, rate limits, thresholds)
+
+\- Pauses workflow at HITL checkpoints and resumes on approval
+
+\- Handles agent failures gracefully (retry, skip, alert)
+
+\- Logs all activity to "System Logs" database
+
+\- Sends MacOS popups for all human-required actions
+
+\- Runs daily via CRON with zero manual intervention
+
+\- Provides clear system status at any time via CLI
+
+### **Estimated Build Time**
+
 4-6 hours (Codex autonomous build)
 
 ---
 
-## 2. TECH STACK
+## **2\. TECH STACK**
 
-### Language
+### **Language**
+
 JavaScript (Node.js)
 
-### Dependencies
+### **Dependencies**
+
 ```json
 {
   "dependencies": {
@@ -2048,7 +2079,7 @@ JavaScript (Node.js)
     "child_process": "native"
   }
 }
-````
+```
 
 ### **APIs**
 
@@ -2886,7 +2917,25 @@ node index.js
 
 ## **🎯 WHAT YOU JUST GOT:**
 
-✅ 4 complete PRD documents with autonomous coder prompts ✅ Notion database schemas (auto-created by agents) ✅ Full integration architecture (agents ↔ orchestrator) ✅ Business rules engine (budget, rate limits, thresholds) ✅ HITL checkpoint system (you stay in control) ✅ MacOS native notifications (no Slack, no email) ✅ CLI tools for manual control ✅ Testing protocols for each agent ✅ $0 additional subscriptions ✅ Parallel build strategy (2-3 days total)
+✅ 4 complete PRD documents with autonomous coder prompts 
+
+✅ Notion database schemas (auto-created by agents) 
+
+✅ Full integration architecture (agents ↔ orchestrator) 
+
+✅ Business rules engine (budget, rate limits, thresholds) 
+
+✅ HITL checkpoint system (you stay in control) 
+
+✅ MacOS native notifications (no Slack, no email) 
+
+✅ CLI tools for manual control 
+
+✅ Testing protocols for each agent 
+
+✅ $0 additional subscriptions 
+
+✅ Parallel build strategy (2-3 days total)
 
 ---
 
