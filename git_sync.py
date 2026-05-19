@@ -9,7 +9,7 @@ from watchdog.events import FileSystemEventHandler
 
 # --- CONFIGURATION ---
 # The exact path of your repository folder
-FOLDER_TO_WATCH = "/Users/pattywoods/Desktop/Turn By Turn Chat RAG Files"
+FOLDER_TO_WATCH = "/Users/pattywoods/Desktop/turn-by-turn-chats-to-mine"
 # Change this to True if you want a pop-up window instead of a notification banner
 USE_POPUP_DIALOG = True 
 
