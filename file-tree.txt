@@ -1,0 +1,33 @@
+File Tree 
+(Auto-Generated After Architecture Approval)
+Rules:
+- Represent full project structure as a tree
+- Use | and └── style hierarchy
+- No comments or explanations inside the tree
+- Reflect actual build output exactly
+- Keep ordering consistent and logical
+
+/[app-name-here]
+├── .gitignore
+├── .env
+├── .env.local
+├── astro.config.mjs
+├── package.json
+├── package-lock.json
+├── public
+├── src
+│   ├── components
+│   ├── layouts
+│   ├── lib
+│   ├── pages
+│   └── styles
+└── misc-docs
+    ├── prd.md
+    ├── mvp-spec.md
+    ├── future-spec.md
+    ├── tech-spec.md
+    ├── build-instructions.md
+    ├── vibe-coder-prep.md
+    └── file-tree.txt
+
+
